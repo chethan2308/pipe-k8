@@ -5,16 +5,18 @@ pipeline {
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
    }
+    environment {
+    registry = "public.ecr.aws/z5b5x0s0/chethan"
+    }
     stages {
      stage('Checkout') {
         steps {  
             sh 'echo passed1'
-            //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+            //git branch: 'main', url: 'https://github.com/chethan2308/pipe-k8.git'
         }
     }
-    environment {
-    registry = "public.ecr.aws/z5b5x0s0/chethan"
-    }
+    
+
     stage('Build and Test') {
       steps {
          sh 'ls -ltr'
